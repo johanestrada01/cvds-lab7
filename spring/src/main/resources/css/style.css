@@ -1,0 +1,39 @@
+.btn-update {
+    background-color: #dc76d7;
+    color: white;
+    border-color: #dc76d7;
+}
+
+.btn-update:hover {
+    background-color: #e09cdd;
+    color: white;
+    border-color: #e09cdd;
+}
+.btn-delete {
+    background-color: #c71224;
+    color: white;
+    border-color: #c71224;
+}
+
+.btn-delete:hover {
+    background-color: #c2515c;
+    color: white;
+    border-color: #c2515c;
+}
+.btn-new {
+    background-color: #8b12c7;
+    color: white;
+    border-color: #8b12c7;
+}
+
+.btn-new:hover {
+    background-color: #934fb4;
+    color: white;
+    border-color: #934fb4;
+}
+.author {
+    position: absolute;
+    bottom: 0;
+    padding: 2px;
+    color: #601493;
+}

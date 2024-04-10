@@ -10,9 +10,9 @@ import jakarta.persistence.Table;
 public class Employee {
     @Id
     @Column(name = "EMPLOYEE_ID")
-    private String employeeId;
+    private String idEmployee;
     @Column(name = "FIRST_NAME")
-    private String firtsName;
+    private String firstName;
     @Column(name = "LAST_NAME")
     private String lastName;
     @Column(name = "ROLE")
@@ -23,19 +23,19 @@ public class Employee {
     public Employee(){}
 
     public Employee(String id, String firstName, String lastName, String role, float salary){
-        this.employeeId=id;
-        this.firtsName=firstName;
+        this.idEmployee=id;
+        this.firstName=firstName;
         this.lastName=lastName;
         this.role=role;
         this.salary=salary;
     }
 
     public String getEmployeeId(){
-        return this.employeeId;
+        return this.idEmployee;
     }
 
-    public String getFirtsName(){
-        return this.firtsName;
+    public String getFirstName(){
+        return this.firstName;
     }
 
     public String getLastName(){
@@ -51,11 +51,11 @@ public class Employee {
     }
 
     public void setEmployeedId(String id){
-        this.employeeId=id;
+        this.idEmployee=id;
     }
 
     public void setFirstName(String name){
-        this.firtsName=name;
+        this.firstName=name;
     }
 
     public void setLastName(String name){
@@ -74,8 +74,8 @@ public class Employee {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((employeeId == null) ? 0 : employeeId.hashCode());
-        result = prime * result + ((firtsName == null) ? 0 : firtsName.hashCode());
+        result = prime * result + ((idEmployee == null) ? 0 : idEmployee.hashCode());
+        result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
         result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
         result = prime * result + ((role == null) ? 0 : role.hashCode());
         result = prime * result + ((String.valueOf(salary) == null) ? 0 : role.hashCode());
@@ -91,20 +91,20 @@ public class Employee {
         if (getClass() != obj.getClass())
             return false;
         Employee other = (Employee) obj;
-        if(employeeId == null){
+        if(idEmployee == null){
             if(other.getEmployeeId() != null){
                 return false;
             }
         }
-        else if(!employeeId.equals(other.getEmployeeId())){
+        else if(!idEmployee.equals(other.getEmployeeId())){
             return false;
         }
-        if(firtsName == null){
-            if(other.getFirtsName() != null){
+        if(firstName == null){
+            if(other.getFirstName() != null){
                 return false;
             }
         }
-        else if(!firtsName.equals(other.getFirtsName())){
+        else if(!firstName.equals(other.getFirstName())){
             return false;
         }
         if(lastName == null){
@@ -128,5 +128,4 @@ public class Employee {
         }
         return true;
     }
-
 }

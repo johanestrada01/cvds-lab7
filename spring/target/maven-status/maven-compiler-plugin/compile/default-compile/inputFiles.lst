@@ -7,9 +7,12 @@
 /home/johan/Documentos/ciclos/lab7/spring/src/main/java/co/edu/escuelaing/cvds/lab7/model/ToDoItem.java
 /home/johan/Documentos/ciclos/lab7/spring/src/main/java/co/edu/escuelaing/cvds/lab7/model/User.java
 /home/johan/Documentos/ciclos/lab7/spring/src/main/java/co/edu/escuelaing/cvds/lab7/controller/LoginController.java
+/home/johan/Documentos/ciclos/lab7/spring/src/main/java/co/edu/escuelaing/cvds/lab7/repository/EmployeeRepository.java
+/home/johan/Documentos/ciclos/lab7/spring/src/main/java/co/edu/escuelaing/cvds/lab7/controller/EmployeeController.java
 /home/johan/Documentos/ciclos/lab7/spring/src/main/java/co/edu/escuelaing/cvds/lab7/model/Session.java
 /home/johan/Documentos/ciclos/lab7/spring/src/main/java/co/edu/escuelaing/cvds/lab7/controller/GreetingController.java
 /home/johan/Documentos/ciclos/lab7/spring/src/main/java/co/edu/escuelaing/cvds/lab7/service/ConfigurationService.java
+/home/johan/Documentos/ciclos/lab7/spring/src/main/java/co/edu/escuelaing/cvds/lab7/service/EmployeeService.java
 /home/johan/Documentos/ciclos/lab7/spring/src/main/java/co/edu/escuelaing/cvds/lab7/model/Employee.java
 /home/johan/Documentos/ciclos/lab7/spring/src/main/java/co/edu/escuelaing/cvds/lab7/Lab7Application.java
 /home/johan/Documentos/ciclos/lab7/spring/src/main/java/co/edu/escuelaing/cvds/lab7/config/WebConfig.java

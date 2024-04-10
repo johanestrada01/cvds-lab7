@@ -3,3 +3,4 @@ co/edu/escuelaing/cvds/lab7/Lab7ApplicationTests.class
 co/edu/escuelaing/cvds/lab7/controller/ConfigurationControllerTest.class
 co/edu/escuelaing/cvds/lab7/controller/GreetingControllerTest.class
 co/edu/escuelaing/cvds/lab7/service/ConfigurationServiceTest.class
+co/edu/escuelaing/cvds/lab7/controller/EmployeeControllerTest.class
