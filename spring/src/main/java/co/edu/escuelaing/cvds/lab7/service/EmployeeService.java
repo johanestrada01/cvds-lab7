@@ -21,12 +21,12 @@ public class EmployeeService {
 
     public List<Employee> getAllEmployee(){return employeeRepository.findAll();}
 
-    public Employee updateEmployee(Employee employee){
-        if(employeeRepository.findByIdEmployee(employee.getEmployeeId()) == null) {
-            return employeeRepository.save(employee);
+    public void deleteEmployee(String id){
+        Optional<Employee> consult=getEmployee(id);
+        if(consult.isPresent()) {
+            Employee employee = consult.get();
+            employeeRepository.delete(employee);
         }
-        return null;
     }
-
-    public void deleteEmployee(String id){employeeRepository.deleteById(id);}
+    //Revisar como se va a manejar el update desde el front para definirlo
 }

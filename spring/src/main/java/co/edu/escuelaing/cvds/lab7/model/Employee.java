@@ -30,7 +30,7 @@ public class Employee {
         this.salary=salary;
     }
 
-    public String getEmployeeId(){
+    public String getIdEmployee(){
         return this.idEmployee;
     }
 
@@ -92,11 +92,11 @@ public class Employee {
             return false;
         Employee other = (Employee) obj;
         if(idEmployee == null){
-            if(other.getEmployeeId() != null){
+            if(other.getIdEmployee() != null){
                 return false;
             }
         }
-        else if(!idEmployee.equals(other.getEmployeeId())){
+        else if(!idEmployee.equals(other.getIdEmployee())){
             return false;
         }
         if(firstName == null){

@@ -15,43 +15,38 @@ import java.util.Optional;
 @RequestMapping(value = "/employee")
 public class EmployeeController {
 
+    @Autowired
     private final EmployeeService employeeService;
 
-    @Autowired
+    //@Autowired
     public EmployeeController(EmployeeService employeeService) {this.employeeService = employeeService;}
 
-/*
-    @GetMapping("/example")
-    public String example(Model model) {
-        model.addAttribute("gerente", employeeService.getGerente());
-        return "example";
-    }
-*/
-
-    @GetMapping("/index/api")
-    public String exampleApi() {
-        return "index";
+    @GetMapping("/main/api")
+    public String mainApi(Model model){
+        List<Employee> employees=employeeService.getAllEmployee();
+        model.addAttribute("employees", employees);
+        return "employee";
     }
 
-    @GetMapping("/index/api/employees")
+    /*
+
+    @PostMapping("/example/api/employee")
     @ResponseBody
-    public List<Employee> exampleApiConfigurations() {
-        return employeeService.getAllEmployee();
-    }
-
-
-    @PostMapping("/index/api/employees")
-    @ResponseBody
-    public List<Employee> exampleApiConfigurations(@RequestBody Employee employee) {
+    public List<Employee> getEmployees(@RequestBody Employee employee) {
         employeeService.addEmployee(employee);
         return employeeService.getAllEmployee();
     }
 
-    public Employee getEmployee(String id){
-        Optional<Employee> result=employeeService.getEmployee(id);
-        if (result.isPresent()){
-            return result.get();
-        }
-        return null;
+    @GetMapping("/example/api")
+    public String exampleApi() {
+        return "example-api";
     }
+
+    @GetMapping("/example/api/employee")
+    @ResponseBody
+    public List<Employee> getAllEmployees(){
+        return employeeService.getAllEmployee();
+    }
+
+    */
 }
