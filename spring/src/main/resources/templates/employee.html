@@ -51,19 +51,13 @@
         async function deleteEmployee(employeeId) {
             console.log(employeeId);
             try {
-                const response = await fetch(`/employee/main/api/delete/${employeeId}`, {
+                fetch(`/employee/main/api/delete/${employeeId}`, {
                     method: 'DELETE'
                 });
-
-                if (response.ok) {
-                    console.log('Empleado eliminado exitosamente');
-                    window.location.reload();
-                } else {
-                    console.error('Error al eliminar el empleado:', response.statusText);
-                }
             } catch (error) {
                 console.error('Error al eliminar el empleado:', error);
             }
+            window.location.reload();
         }
     </script>
     <script src="../js/script.js"></script>

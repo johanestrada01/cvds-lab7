@@ -43,14 +43,14 @@ public class EmployeeControllerTest {
     }
 
 
-    @Test
-    void example() {
-        //Employee employee = new Employee("1", "Juan", "Contreras", "Gerente", 10000.0f);
-        //employeeService.addEmployee(employee);
-        Optional<Employee> testOptional=employeeService.getEmployee("1");
-        Employee test=testOptional.get();
-        String value=test.getEmployeeId();
-        standardOut.println(value);
-    }
+    // @Test
+    // void example() {
+    //     //Employee employee = new Employee("1", "Juan", "Contreras", "Gerente", 10000.0f);
+    //     //employeeService.addEmployee(employee);
+    //     Optional<Employee> testOptional=employeeService.getEmployee("1");
+    //     Employee test=testOptional.get();
+    //     String value=test.getEmployeeId();
+    //     standardOut.println(value);
+    // }
 
 }

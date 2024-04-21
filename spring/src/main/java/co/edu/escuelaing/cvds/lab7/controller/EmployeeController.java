@@ -46,8 +46,8 @@ public class EmployeeController {
         return employeeService.getAllEmployee();
     }
 
-    @DeleteMapping("/employee/main/api/delete/{id}")
-    public void deleteEmployee(@PathVariable String id) {
+    @DeleteMapping("/main/api/delete/{id}")
+    public void deleteEmployee(@PathVariable("id") String id) {
         this.employeeService.deleteEmployee(id);    
     }
 
