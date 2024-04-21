@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"><!-- //NOSONAR -->
+<th:block th:replace="fragments/general.html::headerfiles('Example Page')"></th:block>
+<body>
+<header th:replace="fragments/general::header"/>
+<script>
+    function addDataToTable(dataEmployee) {
+        let dataHtml = `<tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Role</th>
+                <th>Salary</th>
+            </tr>`;
+        dataHtml += dataEmployee.map((employee) => {
+            return `<tr>
+                        <td>${employee.idEmployee}</td>
+                        <td>${employee.firstName}</td>
+                        <td>${employee.lastName}</td>
+                        <td>${employee.role}</td>
+                        <td>${employee.salary}</td>
+                    </tr>`
+        }).join("");
+        console.log("dataHtml", dataHtml);
+        const table = document.querySelector("#employees");
+        table.innerHTML = dataHtml;
+    }
+
+    async function getFromApi() {
+        const response = await fetch('api/employee');
+        const data = await response.json();
+        console.log("data", data);
+        addDataToTable(data);
+    }
+
+    async function postToApi(event) {
+        event.preventDefault();
+        const id = document.querySelector("#idEmployee").value;
+        const firstName = document.querySelector("#firstName").value;
+        const lastName = document.querySelector("#lastName").value;
+        const role = document.querySelector("#role").value;
+        const salary = document.querySelector("#salary").value;
+        const response = await fetch('/employee/main/api/employee', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ idEmployee: id, firstName: firstName, lastName: lastName, role: role, salary: salary }),
+});
+
+        const data = await response.json();
+        console.log("data", data);
+        addDataToTable(data);
+    }
+</script>
+<main>
+    <br>
+    <div class="container">
+        <button onclick="window.location.href='/employee/main/api'" type="button" class="btn btn-primary">Mostrar todos los empleados desde una API</button>
+        <br><br>
+        <table id="employee" class="table">
+        </table>
+    </div>
+    <br><br><br>
+    <div class="container">
+        <h2>Crear unn nuevo empleadpo</h2>
+        <form onsubmit="postToApi(event)">
+            <div class="form-group">
+                <label for="idEmployee">id del empleado</label>
+                <input type="text" class="form-control" id="idEmployee" placeholder="employee-idEmployee">
+            </div>            
+            <div class="form-group">
+                <label for="firstName">Nombre</label>
+                <input type="text" class="form-control" id="firstName" placeholder="employee-firstName">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Apellido</label>
+                <input type="text" class="form-control" id="lastName" placeholder="employee-lastName">
+            </div>
+            <div class="form-group">
+                <label for="role">Rol</label>
+                <input type="text" class="form-control" id="role" placeholder="employee-role">
+            </div>
+            <div class="form-group">
+                <label for="salary">Salario</label>
+                <input type="float" class="form-control" id="salary" placeholder="employee-salary">
+            </div>
+            <br>
+            <input type="submit" class="btn btn-primary" value="Guardar empleado">
+        </form>
+    </div>
+</main>
+</body>
+</html>

@@ -28,25 +28,27 @@ public class EmployeeController {
         return "employee";
     }
 
-    /*
-
-    @PostMapping("/example/api/employee")
-    @ResponseBody
-    public List<Employee> getEmployees(@RequestBody Employee employee) {
-        employeeService.addEmployee(employee);
-        return employeeService.getAllEmployee();
+    @GetMapping("/main/api/insert")
+    public String insertApi() {
+        return "employee-insert";
     }
 
-    @GetMapping("/example/api")
-    public String exampleApi() {
-        return "example-api";
-    }
-
-    @GetMapping("/example/api/employee")
+    @GetMapping("/main/api/employee")
     @ResponseBody
     public List<Employee> getAllEmployees(){
         return employeeService.getAllEmployee();
     }
 
-    */
+    @PostMapping("/main/api/employee")
+    @ResponseBody
+    public List<Employee> insertData(@RequestBody Employee employee) {
+        employeeService.addEmployee(employee);
+        return employeeService.getAllEmployee();
+    }
+
+    @DeleteMapping("/employee/main/api/delete/{id}")
+    public void deleteEmployee(@PathVariable String id) {
+        this.employeeService.deleteEmployee(id);    
+    }
+
 }
