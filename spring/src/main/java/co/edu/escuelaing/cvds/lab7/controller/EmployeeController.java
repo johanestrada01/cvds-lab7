@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 @RequestMapping(value = "/employee")
@@ -50,5 +53,26 @@ public class EmployeeController {
     public void deleteEmployee(@PathVariable("id") String id) {
         this.employeeService.deleteEmployee(id);    
     }
+    
+    @PostMapping("/main/api/update")
+    @ResponseBody
+    public void updateEmployee(@RequestBody Employee employee){
+        String id=employee.getIdEmployee();
+        employeeService.deleteEmployee(id);
+        employeeService.addEmployee(employee);
+    }
+
+    @GetMapping("/main/api/get/{id}")
+    public Employee getEmployee(@RequestParam String id) { 
+        return employeeService.getEmployee(id).get();
+    }
+
+    @GetMapping("/main/api/update/data/{id}")
+    public String update(Model model, @PathVariable("id") String id) {
+        Employee employee=employeeService.getEmployee(id).get();
+        model.addAttribute("employee", employee);
+        return "employee-update";
+    }
+    
 
 }

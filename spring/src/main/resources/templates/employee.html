@@ -34,12 +34,12 @@
                             <button type="button" class="btn btn-outline-danger btn-sm" th:attr="data-employee-id=${employee.idEmployee}" onclick="deleteEmployee(this.getAttribute('data-employee-id'))">Eliminar</button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="updateEmployee('${employee.idEmployee}')">Actualizar</button>
+                            <button type="button" class="btn btn-outline-primary btn-sm" th:attr="data-employee-id=${employee.idEmployee}" onclick="updateEmployee(this.getAttribute('data-employee-id'))">Actualizar datos</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <button type="button" class="btn btn-primary btn-lg px-4 gap-3" onclick="window.location.href = '/employee/main/api/insert'">Insertar</button>
+            <button type="button" class="btn btn-primary btn-lg px-4 gap-3" onclick="window.location.href = '/employee/main/api/insert'">Insertar</button> 
         </div>
         <div class="author">
             <p>Ana Duran Juan Contreras Johan Estrada</p>
@@ -59,6 +59,11 @@
             }
             window.location.reload();
         }
+
+        async function updateEmployee(employeeId){
+            window.location.href = `/employee/main/api/update/data/${employeeId}`
+        }
+
     </script>
     <script src="../js/script.js"></script>
 </main>

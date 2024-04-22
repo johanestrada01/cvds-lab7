@@ -28,5 +28,5 @@ public class EmployeeService {
             employeeRepository.delete(employee);
         }
     }
-    //Revisar como se va a manejar el update desde el front para definirlo
+
 }

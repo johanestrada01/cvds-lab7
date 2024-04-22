@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"><!-- //NOSONAR -->
+<th:block th:replace="fragments/general.html::headerfiles('Example Page')"></th:block>
+<body>
+<header th:replace="fragments/general::header"/>
+<script>
+    function addDataToTable(dataEmployee) {
+        let dataHtml = `<tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Role</th>
+                <th>Salary</th>
+            </tr>`;
+        dataHtml += dataEmployee.map((employee) => {
+            return `<tr>
+                        <td>${employee.idEmployee}</td>
+                        <td>${employee.firstName}</td>
+                        <td>${employee.lastName}</td>
+                        <td>${employee.role}</td>
+                        <td>${employee.salary}</td>
+                    </tr>`
+        }).join("");
+        console.log("dataHtml", dataHtml);
+        const table = document.querySelector("#employees");
+        table.innerHTML = dataHtml;
+    }
+
+    async function postToApi(event) {
+    event.preventDefault();
+    const id = document.querySelector("#idEmployee").value;
+    const firstName = document.querySelector("#firstName").value;
+    const lastName = document.querySelector("#lastName").value;
+    const role = document.querySelector("#role").value;
+    const salary = document.querySelector("#salary").value;
+    const response = await fetch('/employee/main/api/update', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ idEmployee: id, firstName: firstName, lastName: lastName, role: role, salary: salary }),
+    });
+    window.location.href = `/employee/main/api`
+    const data = await response.json();
+    addDataToTable(data);
+}
+
+</script>
+<main>
+    <br>
+    <div class="container">
+        <br><br>
+        <table id="employee" class="table">
+        </table>
+    </div>
+    <br><br><br>
+
+    <div class="container">
+        <h2>Actualización de datos</h2>
+        <form onsubmit="postToApi(event)">
+            <div class="form-group", style="display: none;">
+                <label for="idEmployee">id del empleado</label>
+                <input type="text" class="form-control" id="idEmployee" th:value="${employee.idEmployee}">
+            </div>          
+            <div class="form-group">
+                <label for="firstName">Nombre</label>
+                <input type="text" class="form-control" id="firstName" th:value="${employee.firstName}">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Apellido</label>
+                <input type="text" class="form-control" id="lastName" th:value="${employee.lastName}">
+            </div>
+            <div class="form-group">
+                <label for="role">Rol</label>
+                <input type="text" class="form-control" id="role" th:value="${employee.role}">
+            </div>
+            <div class="form-group">
+                <label for="salary">Salario</label>
+                <input type="text" class="form-control" id="salary" th:value="${employee.salary}">
+            </div>
+            <br>
+            <input type="submit" class="btn btn-primary" value="Guardar empleado">
+        </form>
+    </div>
+    
+</main>
+</body>
+</html>
